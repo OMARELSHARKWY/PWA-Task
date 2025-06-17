@@ -1,6 +1,6 @@
 // ===== Sever Worker ==============
 window.addEventListener('load',event=>{
-    navigator.serviceWorker.register('../sw.js')
+    navigator.serviceWorker.register('/sw.js')
     .then(reg=> {
         console.log("Service Worker registered",reg);
      }
@@ -25,10 +25,10 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault(); 
     deferredPrompt = e;
-    document.getElementById('install-btn').style.display = 'block';
+    document.getElementById('installBtn').style.display = 'block';
 });
 
-document.getElementById('install-btn').addEventListener('click', () => {
+document.getElementById('installBtn').addEventListener('click', () => {
     if (deferredPrompt) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then(choiceResult => {
